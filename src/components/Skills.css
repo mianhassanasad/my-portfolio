@@ -1,0 +1,36 @@
+.skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+}
+
+.skills .progress .skill {
+  padding: 10px 0;
+  margin: 0 0 6px;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #050d18;
+  text-transform: uppercase;
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  width: 100%;
+  background: #dce8f8;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.skills .progress-bar {
+  height: 10px;
+  width: 0;
+  background: #149ddd;
+  transition: width 1.5s ease;
+  border-radius: 20px;
+}
