@@ -1,113 +1,36 @@
 import "./Portfolio.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaPlus, FaLink } from "react-icons/fa";
 
-import img1 from "../assets/Portfolio/one.png";
-import img2 from "../assets/Portfolio/portfolio1.jpg";
-import img3 from "../assets/Portfolio/portfolio-2.jpg";
-import img4 from "../assets/Portfolio/portfolio-3.jpg";
-import img5 from "../assets/Portfolio/portfolio-4.jpg";
-import img6 from "../assets/Portfolio/portfolio-5.jpg";
-import img7 from "../assets/Portfolio/portfolio-6.jpg";
-import img8 from "../assets/Portfolio/portfolio-7.jpg";
-import img9 from "../assets/Portfolio/portfolio-8.jpg";
-
+import projectData from "../data/projectData";
+  
 function Portfolio() {
-
   const [filter, setFilter] = useState("all");
-
-  const portfolioItems = [
-    {
-      id: 1,
-      category: "web",
-      image: img1,
-      title: "Website 1",
-      link: "#",
-    },
-    {
-      id: 2,
-      category: "app",
-      image: img2,
-      title: "App 1",
-      link: "#",
-    },
-    {
-      id: 3,
-      category: "card",
-      image: img3,
-      title: "Card 1",
-      link: "#",
-    },
-    {
-      id: 4,
-      category: "web",
-      image: img4,
-      title: "Website 2",
-      link: "#",
-    },
-    {
-      id: 5,
-      category: "app",
-      image: img5,
-      title: "App 2",
-      link: "#",
-    },
-    {
-      id: 6,
-      category: "card",
-      image: img6,
-      title: "Card 2",
-      link: "#",
-    },
-    {
-      id: 7,
-      category: "card",
-      image: img7,
-      title: "Card 3",
-      link: "#",
-    },
-    {
-      id: 8,
-      category: "web",
-      image: img8,
-      title: "Website 3",
-      link: "#",
-    },
-    {
-      id: 9,
-      category: "web",
-      image: img9,
-      title: "Website 4",
-      link: "#",
-    },
-  ];
 
   const filteredItems =
     filter === "all"
-      ? portfolioItems
-      : portfolioItems.filter(
-          (item) => item.category === filter
-        );
+      ? projectData
+      : projectData.filter((item) => item.category === filter);
 
   return (
     <section id="portfolio" className="portfolio section-bg">
-
       <div className="container">
+
+        {/* Section Title */}
 
         <div className="section-title">
           <h2>Portfolio</h2>
 
           <p>
-            Here are some of my recent projects including
-            websites, applications and UI designs.
+            Here are some of my recent projects including websites,
+            applications and UI designs.
           </p>
-
         </div>
 
         {/* Filter Buttons */}
 
         <div className="row">
-
           <div className="col-lg-12 d-flex justify-content-center">
 
             <ul id="portfolio-flters">
@@ -117,6 +40,13 @@ function Portfolio() {
                 onClick={() => setFilter("all")}
               >
                 All
+              </li>
+
+              <li
+                className={filter === "web" ? "filter-active" : ""}
+                onClick={() => setFilter("web")}
+              >
+                Web
               </li>
 
               <li
@@ -133,55 +63,59 @@ function Portfolio() {
                 Card
               </li>
 
-              <li
-                className={filter === "web" ? "filter-active" : ""}
-                onClick={() => setFilter("web")}
-              >
-                Web
-              </li>
-
             </ul>
 
           </div>
-
         </div>
 
         {/* Portfolio Grid */}
 
         <div className="row">
 
-          {filteredItems.map((item) => (
+          {filteredItems.map((project) => (
 
             <div
-              className="col-lg-4 col-md-6 portfolio-item"
-              key={item.id}
+              className="col-lg-4 col-md-6 portfolio-item mb-4"
+              key={project.id}
             >
 
               <div className="portfolio-wrap">
 
                 <img
-                  src={item.image}
-                  alt={item.title}
+                  src={project.image}
+                  alt={project.title}
                   className="img-fluid"
                 />
 
+                <div className="portfolio-info">
+
+                  <h4>{project.title}</h4>
+
+                  <p>{project.category}</p>
+
+                </div>
+
                 <div className="portfolio-links">
 
+                  {/* Image Preview */}
+
                   <a
-                    href={item.image}
+                    href={project.image}
                     target="_blank"
                     rel="noreferrer"
+                    title="Preview Image"
                   >
                     <FaPlus />
                   </a>
 
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
+                  {/* Project Details */}
+
+                  <Link
+                    to={`/project/${project.slug}`}
+                    title="Project Details"
                   >
                     <FaLink />
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -194,7 +128,6 @@ function Portfolio() {
         </div>
 
       </div>
-
     </section>
   );
 }

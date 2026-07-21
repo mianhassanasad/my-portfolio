@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
 import Body from "./components/Body";
+import ProjectDetails from "./Pages/ProjectDetails";
 
 function App() {
   return (
     <>
       <Header />
-      <Body />
+
+      <Routes>
+        <Route path="/" element={<Body />} />
+        <Route path="/project/:slug" element={<ProjectDetails />} />
+      </Routes>
     </>
   );
 }

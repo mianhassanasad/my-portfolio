@@ -1,0 +1,169 @@
+.project-details {
+  margin-left: 300px;
+  padding: 80px 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Hero
+=========================== */
+
+.project-image {
+  width: 100%;
+  border-radius: 20px;
+  transition: .4s;
+}
+
+.project-image:hover {
+  transform: scale(1.02);
+}
+
+.project-category {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: #149ddd;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.project-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #173b6c;
+}
+
+.project-description {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.project-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.08);
+  transition: .35s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card h2 {
+  margin-bottom: 25px;
+  color: #173b6c;
+  font-size: 28px;
+}
+
+.project-card p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.project-card strong {
+  color: #173b6c;
+}
+
+/* ===========================
+   Technologies
+=========================== */
+
+.tech-list {
+  margin-top: 20px;
+}
+
+.tech-list .badge {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 30px;
+}
+
+/* ===========================
+   Features
+=========================== */
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 17px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn-primary,
+.btn-dark,
+.btn-outline-primary {
+  border-radius: 40px;
+  padding: 12px 28px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:1199px){
+
+.project-details{
+margin-left:0;
+padding:70px 20px;
+}
+
+}
+
+@media (max-width:991px){
+
+.project-title{
+font-size:34px;
+margin-top:30px;
+}
+
+.project-description{
+font-size:16px;
+}
+
+.project-card{
+margin-top:30px;
+}
+
+}
+
+@media (max-width:576px){
+
+.project-title{
+font-size:28px;
+}
+
+.project-card{
+padding:20px;
+}
+
+.project-card h2{
+font-size:24px;
+}
+
+.feature-list li{
+font-size:15px;
+}
+
+}
