@@ -3,14 +3,14 @@ import { useState } from "react";
 import { FaPlus, FaLink } from "react-icons/fa";
 
 import img1 from "../assets/Portfolio/one.png";
-import img2 from "../assets/portfolio/portfolio1.jpg";
-import img3 from "../assets/portfolio/portfolio-2.jpg";
-import img4 from "../assets/portfolio/portfolio-3.jpg";
-import img5 from "../assets/portfolio/portfolio-4.jpg";
-import img6 from "../assets/portfolio/portfolio-5.jpg";
-import img7 from "../assets/portfolio/portfolio-6.jpg";
-import img8 from "../assets/portfolio/portfolio-7.jpg";
-import img9 from "../assets/portfolio/portfolio-8.jpg";
+import img2 from "../assets/Portfolio/portfolio1.jpg";
+import img3 from "../assets/Portfolio/portfolio-2.jpg";
+import img4 from "../assets/Portfolio/portfolio-3.jpg";
+import img5 from "../assets/Portfolio/portfolio-4.jpg";
+import img6 from "../assets/Portfolio/portfolio-5.jpg";
+import img7 from "../assets/Portfolio/portfolio-6.jpg";
+import img8 from "../assets/Portfolio/portfolio-7.jpg";
+import img9 from "../assets/Portfolio/portfolio-8.jpg";
 
 function Portfolio() {
 
