@@ -182,3 +182,100 @@
     border-right-color: var(--border);
   }
 }
+/* ==========================================
+   GLOBAL MOBILE RESPONSIVE FIXES 
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* 1. Prevent Horizontal Scroll Out of Bounds */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* 2. Global Section Spacing */
+  section {
+    padding: 30px 15px !important;
+  }
+
+  /* 3. Global Section Titles */
+  .section-title h2 {
+    font-size: 24px !important;
+  }
+  
+  .section-title p {
+    font-size: 13px !important;
+    line-height: 1.5;
+  }
+
+  /* 4. Skills Section Mobile Fix */
+  .skill-box {
+    margin-bottom: 16px !important;
+  }
+  
+  .skills .progress-bar-wrap {
+    height: 8px !important;
+  }
+
+  /* 5. Services Cards Mobile Fix */
+  .service-box {
+    padding: 18px 16px !important;
+    margin-bottom: 15px;
+  }
+
+  .service-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .service-title {
+    font-size: 16px !important;
+  }
+
+  /* 6. Testimonials Swiper Mobile Fix */
+  .testimonial-item {
+    padding: 16px !important;
+  }
+
+  .testimonial-text {
+    font-size: 13px !important;
+  }
+
+  /* 7. Contact Section Mobile Fix */
+  .contact-info-card, 
+  .contact-form-card {
+    padding: 18px 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .info-item {
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .info-item .icon-box {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 15px !important;
+  }
+
+  .info-item .details h4 {
+    font-size: 14px !important;
+  }
+
+  .info-item .details p {
+    font-size: 12.5px !important;
+  }
+
+  .contact-form-card .form-control {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+  }
+
+  .btn-send-message {
+    width: 100% !important;
+    padding: 10px 0 !important;
+  }
+}
