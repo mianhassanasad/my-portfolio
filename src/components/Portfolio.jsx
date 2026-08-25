@@ -7,7 +7,7 @@ import projectData from "../data/projectData";
   
 function Portfolio() {
   const [filter, setFilter] = useState("all");
-
+    const [selectedImage, setSelectedImage] = useState(null);
   const filteredItems =
     filter === "all"
       ? projectData
@@ -99,15 +99,12 @@ function Portfolio() {
 
                   {/* Image Preview */}
 
-                  <a
-                    href={project.image}
-                    target="_blank"
-                    rel="noreferrer"
-                    title="Preview Image"
-                  >
-                    <FaPlus />
-                  </a>
-
+                  <button
+  className="preview-btn"
+  onClick={() => setSelectedImage(project.image)}
+>
+  <FaPlus />
+</button>
                   {/* Project Details */}
 
                   <Link
@@ -128,6 +125,22 @@ function Portfolio() {
         </div>
 
       </div>
+      {selectedImage && (
+
+<div
+className="lightbox"
+onClick={() => setSelectedImage(null)}
+>
+
+<img
+src={selectedImage}
+alt=""
+className="lightbox-image"
+/>
+
+</div>
+
+)}
     </section>
   );
 }

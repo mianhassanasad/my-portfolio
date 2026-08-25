@@ -1,14 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import projectData from "../data/projectData";
 import "./ProjectDetails.css";
+import { useState } from "react";
 
 function ProjectDetails() {
   const { slug } = useParams();
 
   const project = projectData.find(
     (item) => item.slug === slug
-  );
 
+  );
+  const [mainImage, setMainImage] = useState(project?.image);
   if (!project) {
     return (
       <div className="container py-5 text-center">
@@ -51,10 +53,27 @@ function ProjectDetails() {
           <div className="col-lg-6">
 
             <img
-              src={project.image}
+              src={mainImage}
               alt={project.title}
               className="project-image img-fluid shadow"
             />
+
+            <div className="thumbnail-gallery">
+
+              {project.gallery.map((img, index) => (
+
+                <img
+                  key={index}
+                  src={img}
+                  alt=""
+                  className={`thumbnail ${mainImage === img ? "active-thumb" : ""
+                    }`}
+                  onClick={() => setMainImage(img)}
+                />
+
+              ))}
+
+            </div>
 
           </div>
 

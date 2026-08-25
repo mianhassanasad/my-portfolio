@@ -15,6 +15,11 @@ const projectData = [
     title: "Musab Fragrances",
     category: "web",
     image: img1,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
 
     description:
       "Premium perfume brand website developed with React and Bootstrap.",
@@ -50,16 +55,26 @@ const projectData = [
 
   {
     id: 2,
-    slug: "portfolio-website",
-    title: "Developer Portfolio",
+
+    slug: "react-portfolio",
+
+    title: "React Portfolio",
+
     category: "web",
+
     image: img2,
 
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
     description:
-      "Personal developer portfolio created using React.",
+      "Personal portfolio website developed using React and Bootstrap.",
 
     overview:
-      "A responsive portfolio website to showcase projects, skills, services and contact information.",
+      "A modern portfolio showcasing projects, skills and services with smooth navigation and responsive layout.",
 
     client: "Personal",
 
@@ -69,22 +84,26 @@ const projectData = [
 
     status: "Completed",
 
-    features: [
-      "Responsive",
-      "Project Showcase",
-      "Contact Section",
-      "Smooth Scrolling"
-    ],
-
     technologies: [
       "React",
       "Bootstrap",
-      "CSS3"
+      "CSS",
+      "JavaScript",
+      "Vite"
     ],
 
-    github: "https://github.com/mianhassanasad",
+    features: [
+      "Responsive",
+      "Portfolio Filter",
+      "Project Details",
+      "Animations",
+      "Contact Section"
+    ],
 
-    live: "https://mianhassan.vercel.app",
+    live: "#",
+
+    github: "#",
+
   },
 
   {
@@ -96,6 +115,12 @@ const projectData = [
     category: "web",
 
     image: img3,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "Pixel perfect landing page built using Divi Builder.",
@@ -139,6 +164,12 @@ const projectData = [
     category: "web",
 
     image: img4,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "Modern business website.",
@@ -180,6 +211,11 @@ const projectData = [
     category: "app",
 
     image: img5,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
 
     description:
       "Responsive admin dashboard.",
@@ -221,6 +257,12 @@ const projectData = [
     category: "web",
 
     image: img6,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "Restaurant website with menu section.",
@@ -263,6 +305,12 @@ const projectData = [
     category: "web",
 
     image: img7,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "Modern ecommerce website.",
@@ -304,6 +352,12 @@ const projectData = [
     category: "web",
 
     image: img8,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "Responsive property listing website.",
@@ -345,6 +399,12 @@ const projectData = [
     category: "web",
 
     image: img9,
+    gallery: [
+      img2,
+      img3,
+      img4
+    ],
+
 
     description:
       "WordPress business website.",
