@@ -34,8 +34,9 @@ function About() {
             <a
               id="download-btn"
               className="btn btn-download shadow-sm"
-              href="/resume/Mian-Hassan.pdf"
-              download="Mian_Hassan_Resume.pdf"
+              href="/resume/Mian_Hassan_Resume.pdf"
+              download="
+              Mian_Hassan_Resume.pdf"
             >
               Download Resume <span className="ms-1">&rarr;</span>
             </a>

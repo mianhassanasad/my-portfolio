@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import ProjectDetails from "./Pages/ProjectDetails";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Body />} />
         <Route path="/project/:slug" element={<ProjectDetails />} />
       </Routes>
+      <WhatsAppButton />
     </>
   );
 }
