@@ -1,14 +1,13 @@
 import "./Portfolio.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaPlus, FaLink } from "react-icons/fa";
+import { FaSearchPlus, FaExternalLinkAlt } from "react-icons/fa";
 import projectData from "../data/projectData";
 
 function Portfolio() {
   const [filter, setFilter] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Extract unique categories dynamically from projectData
   const categories = [
     "all",
     ...new Set(projectData.map((item) => item.category)),
@@ -19,15 +18,14 @@ function Portfolio() {
       ? projectData
       : projectData.filter((item) => item.category === filter);
 
-  // Formatting labels for filter buttons
   const formatCategoryName = (category) => {
     switch (category) {
       case "all":
         return "All";
       case "wordpress":
-        return "WordPress / CMS";
+        return "WordPress";
       case "react":
-        return "React / Front-End";
+        return "React.js";
       case "ecommerce":
         return "E-Commerce";
       default:
@@ -38,68 +36,62 @@ function Portfolio() {
   return (
     <section id="portfolio" className="portfolio section-bg">
       <div className="container">
-        {/* Section Title */}
         <div className="section-title">
           <h2>Portfolio</h2>
-          <p>
-            Here are some of my recent projects including WordPress websites,
-            Custom React Applications, and E-Commerce solutions.
-          </p>
+          <p>Explore recent WordPress, React, and E-Commerce builds.</p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="row">
-          <div className="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              {categories.map((cat) => (
-                <li
-                  key={cat}
-                  className={filter === cat ? "filter-active" : ""}
-                  onClick={() => setFilter(cat)}
-                >
-                  {formatCategoryName(cat)}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Filter Bar with Mobile Scroll Wrapper */}
+        <div className="filter-container text-center mb-4">
+          <ul id="portfolio-flters">
+            {categories.map((cat) => (
+              <li
+                key={cat}
+                className={filter === cat ? "filter-active" : ""}
+                onClick={() => setFilter(cat)}
+              >
+                {formatCategoryName(cat)}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Portfolio Grid */}
-        <div className="row">
+        {/* Portfolio Cards Grid */}
+        <div className="row g-4">
           {filteredItems.map((project) => (
-            <div
-              className="col-lg-4 col-md-6 portfolio-item mb-4"
-              key={project.id}
-            >
+            <div className="col-lg-4 col-md-6" key={project.id}>
               <div className="portfolio-wrap">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="img-fluid"
-                />
-
-                <div className="portfolio-info">
-                  <h4>{project.title}</h4>
-                  <p>{formatCategoryName(project.category)}</p>
+                <div className="portfolio-img-box">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="img-fluid"
+                  />
                 </div>
 
-                <div className="portfolio-links">
-                  {/* Image Preview */}
-                  <button
-                    className="preview-btn"
-                    onClick={() => setSelectedImage(project.image)}
-                    aria-label="Preview Image"
-                  >
-                    <FaPlus />
-                  </button>
+                <div className="portfolio-card-body">
+                  <div className="portfolio-card-info">
+                    <h4>{project.title}</h4>
+                    <p>{formatCategoryName(project.category)}</p>
+                  </div>
 
-                  {/* Project Details */}
-                  <Link
-                    to={`/project/${project.slug}`}
-                    title="Project Details"
-                  >
-                    <FaLink />
-                  </Link>
+                  <div className="portfolio-actions">
+                    <button
+                      className="action-btn"
+                      onClick={() => setSelectedImage(project.image)}
+                      aria-label="Preview Image"
+                    >
+                      <FaSearchPlus />
+                    </button>
+
+                    <Link
+                      to={`/project/${project.slug}`}
+                      className="action-btn"
+                      aria-label="Project Details"
+                    >
+                      <FaExternalLinkAlt />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
