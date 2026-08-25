@@ -1,4 +1,4 @@
-import img1 from "../assets/Portfolio/one.png";
+import img1 from "../assets/Portfolio/Home-Musab-Fragrances-08-25-2026_03_34_PM.png";
 import img2 from "../assets/Portfolio/portfolio1.jpg";
 import img3 from "../assets/Portfolio/portfolio-2.jpg";
 import img4 from "../assets/Portfolio/portfolio-3.jpg";
@@ -7,6 +7,10 @@ import img6 from "../assets/Portfolio/portfolio-5.jpg";
 import img7 from "../assets/Portfolio/portfolio-6.jpg";
 import img8 from "../assets/Portfolio/portfolio-7.jpg";
 import img9 from "../assets/Portfolio/portfolio-8.jpg";
+import img10 from "../assets/Portfolio/Home-Musab-Fragrances-08-25-2026_03_11_PM.png";
+import img11 from "../assets/Portfolio/Shop-Musab-Fragrances-08-25-2026_03_39_PM.png";
+import img12 from "../assets/Portfolio/Contact-Us-Musab-Fragrances-08-25-2026_03_41_PM.png";
+
 
 const projectData = [
   {
@@ -16,9 +20,9 @@ const projectData = [
     category: "web",
     image: img1,
     gallery: [
-      img2,
-      img3,
-      img4
+      img10,
+      img11,
+      img12
     ],
 
     description:
