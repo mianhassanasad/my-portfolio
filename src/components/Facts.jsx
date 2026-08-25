@@ -12,9 +12,9 @@ function Facts() {
       <div className="container">
 
         {/* Section Header */}
-        <div className="section-title text-center text-md-start mb-4">
-          <h2 className="fw-bold">Facts & Milestones</h2>
-          <p className="text-muted">
+        <div className="facts-header text-center text-md-start mb-4">
+          <h2 className="section-title fw-bold">Facts & Milestones</h2>
+          <p className="subtitle text-muted">
             A quick overview of my professional experience, completed projects, and client satisfaction over the years.
           </p>
         </div>
@@ -25,7 +25,9 @@ function Facts() {
           {/* Happy Clients */}
           <div className="col-6 col-lg-3">
             <div className="count-box text-center">
-              <FaSmile className="fact-icon text-primary mb-2" />
+              <div className="icon-wrapper client-icon">
+                <FaSmile className="fact-icon" />
+              </div>
               <span className="count-number d-block">30+</span>
               <p className="count-text m-0">
                 <strong>Happy Clients</strong> across worldwide marketplaces
@@ -36,7 +38,9 @@ function Facts() {
           {/* Projects Done */}
           <div className="col-6 col-lg-3">
             <div className="count-box text-center">
-              <FaFolderOpen className="fact-icon text-success mb-2" />
+              <div className="icon-wrapper project-icon">
+                <FaFolderOpen className="fact-icon" />
+              </div>
               <span className="count-number d-block">50+</span>
               <p className="count-text m-0">
                 <strong>Projects Done</strong> in React & WordPress
@@ -47,7 +51,9 @@ function Facts() {
           {/* Support & Commitment */}
           <div className="col-6 col-lg-3">
             <div className="count-box text-center">
-              <FaHeadset className="fact-icon text-info mb-2" />
+              <div className="icon-wrapper support-icon">
+                <FaHeadset className="fact-icon" />
+              </div>
               <span className="count-number d-block">24/7</span>
               <p className="count-text m-0">
                 <strong>Client Support</strong> & maintenance availability
@@ -58,7 +64,9 @@ function Facts() {
           {/* Client Satisfaction / Quality */}
           <div className="col-6 col-lg-3">
             <div className="count-box text-center">
-              <FaAward className="fact-icon text-warning mb-2" />
+              <div className="icon-wrapper quality-icon">
+                <FaAward className="fact-icon" />
+              </div>
               <span className="count-number d-block">100%</span>
               <p className="count-text m-0">
                 <strong>Job Success</strong> rate & quality delivery

@@ -111,13 +111,16 @@ function Services() {
       {/* Services Section */}
       <section id="services" className="services">
         <div className="container">
-          <div className="section-title text-center text-md-start mb-4">
-            <h2 className="fw-bold">Services</h2>
-            <p className="text-muted">
+          
+          {/* Section Header */}
+          <div className="services-header text-center text-md-start mb-4">
+            <h2 className="section-title fw-bold">Services</h2>
+            <p className="subtitle text-muted">
               High-quality web development services tailored to grow your digital presence and optimize performance.
             </p>
           </div>
 
+          {/* Services Grid */}
           <div className="row g-4">
             {servicesList.map((service) => (
               <div key={service.id} className="col-lg-4 col-md-6">
@@ -135,13 +138,16 @@ function Services() {
       {/* Testimonials Section */}
       <section id="testimonials" className="testimonials section-bg">
         <div className="container">
-          <div className="section-title text-center text-md-start mb-4">
-            <h2 className="fw-bold">Testimonials</h2>
-            <p className="text-muted">
+
+          {/* Section Header */}
+          <div className="testimonials-header text-center text-md-start mb-4">
+            <h2 className="section-title fw-bold">Testimonials</h2>
+            <p className="subtitle text-muted">
               What my clients and partners say about my commitment, work quality, and delivery.
             </p>
           </div>
 
+          {/* Testimonials Swiper Carousel */}
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={25}

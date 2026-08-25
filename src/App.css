@@ -1,281 +1,210 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ===================================================
+   PORTFOLIO GLOBAL DESIGN SYSTEM & MASTER STYLES
+   =================================================== */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* 1. CSS Variables & Theme Foundations */
+:root {
+  --primary-color: #173b6c;
+  --accent-color: #0563bb;
+  --accent-gradient: linear-gradient(135deg, #0563bb 0%, #00b4d8 100%);
+  --text-dark: #272829;
+  --text-muted: #6c757d;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 25px rgba(5, 99, 187, 0.08);
+  --font-main: "Open Sans", system-ui, -apple-system, sans-serif;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
+/* 2. Global Resets & HTML Defaults */
+html,
+body {
   width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
-/* ==========================================
-   GLOBAL MOBILE RESPONSIVE FIXES 
-   ========================================== */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 3. Base Section Layouts & Background Alternation */
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: var(--bg-light);
+}
+
+/* 4. Universal Section Titles & Headings (Desktop Default) */
+.section-title,
+.services-header,
+.testimonials-header,
+.contact-header {
+  margin-bottom: 30px;
+}
+
+.section-title h2,
+.services-header .section-title,
+.testimonials-header .section-title,
+.contact-header .section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* Desktop Accent Underline Divider */
+.section-title h2::after,
+.services-header .section-title::after,
+.testimonials-header .section-title::after,
+.contact-header .section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3.5px;
+  background: var(--accent-gradient);
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+}
+
+.section-title p,
+.services-header .subtitle,
+.testimonials-header .subtitle,
+.contact-header .subtitle {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* 5. Generic Utility Classes */
+.text-primary-custom {
+  color: var(--primary-color) !important;
+}
+
+.text-accent-custom {
+  color: var(--accent-color) !important;
+}
+
+.bg-light-custom {
+  background-color: var(--bg-light) !important;
+}
+
+/* Base Card Lift Animations */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===================================================
+   UNIFIED MOBILE RESPONSIVE ENGINE (Max Width 768px)
+   =================================================== */
 @media (max-width: 768px) {
-  /* 1. Prevent Horizontal Scroll Out of Bounds */
-  html, body {
+  /* Prevent horizontal scrolling glitches on mobile devices */
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100% !important;
   }
 
-  /* 2. Global Section Spacing */
+  /* Compact section spacing */
   section {
-    padding: 30px 15px !important;
+    padding: 36px 0 !important;
   }
 
-  /* 3. Global Section Titles */
-  .section-title h2 {
+  /* Consistent container horizontal padding */
+  .container,
+  .container-fluid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* -------------------------------------------------
+     Mobile Header & Title Alignment (Centered Divider)
+     ------------------------------------------------- */
+  .section-title,
+  .services-header,
+  .testimonials-header,
+  .contact-header {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+  }
+
+  .section-title h2,
+  .services-header .section-title,
+  .testimonials-header .section-title,
+  .contact-header .section-title {
     font-size: 24px !important;
-  }
-  
-  .section-title p {
-    font-size: 13px !important;
-    line-height: 1.5;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
   }
 
-  /* 4. Skills Section Mobile Fix */
-  .skill-box {
-    margin-bottom: 16px !important;
-  }
-  
-  .skills .progress-bar-wrap {
-    height: 8px !important;
+  /* Center the underline divider on small screens */
+  .section-title h2::after,
+  .services-header .section-title::after,
+  .testimonials-header .section-title::after,
+  .contact-header .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 45px !important;
   }
 
-  /* 5. Services Cards Mobile Fix */
+  .section-title p,
+  .services-header .subtitle,
+  .testimonials-header .subtitle,
+  .contact-header .subtitle {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+  }
+
+  /* -------------------------------------------------
+     Component Specific Layout Compactness
+     ------------------------------------------------- */
+  /* Service Box Spacing */
   .service-box {
-    padding: 18px 16px !important;
-    margin-bottom: 15px;
+    padding: 20px 18px !important;
+    border-radius: 12px !important;
   }
 
-  .service-icon {
-    width: 42px !important;
-    height: 42px !important;
-    font-size: 18px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .service-title {
-    font-size: 16px !important;
-  }
-
-  /* 6. Testimonials Swiper Mobile Fix */
+  /* Testimonials Swiper Padding */
   .testimonial-item {
-    padding: 16px !important;
+    padding: 20px 18px !important;
+    border-radius: 12px !important;
   }
 
-  .testimonial-text {
-    font-size: 13px !important;
-  }
-
-  /* 7. Contact Section Mobile Fix */
-  .contact-info-card, 
+  /* Contact Form & Info Cards */
+  .contact-info-card,
   .contact-form-card {
-    padding: 18px 14px !important;
-    border-radius: 10px !important;
+    padding: 20px 18px !important;
+    border-radius: 12px !important;
   }
 
-  .info-item {
-    gap: 12px !important;
-    margin-bottom: 16px !important;
-  }
-
-  .info-item .icon-box {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 15px !important;
-  }
-
-  .info-item .details h4 {
-    font-size: 14px !important;
-  }
-
-  .info-item .details p {
-    font-size: 12.5px !important;
-  }
-
-  .contact-form-card .form-control {
-    font-size: 13px !important;
-    padding: 8px 12px !important;
-  }
-
+  /* Full Width Mobile Submit Button */
   .btn-send-message {
     width: 100% !important;
-    padding: 10px 0 !important;
+    padding: 12px 0 !important;
   }
 }

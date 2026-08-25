@@ -36,8 +36,8 @@ function Skills() {
   ];
 
   const SkillItem = ({ skill }) => (
-    <div className="skill-box">
-      <div className="skill-info">
+    <div className="skill-box mb-4">
+      <div className="skill-info d-flex justify-content-between align-items-center mb-2">
         <span className="skill-name">{skill.name}</span>
         <span className="skill-val">{skill.value}%</span>
       </div>
@@ -58,9 +58,9 @@ function Skills() {
       <div className="container">
 
         {/* Section Title */}
-        <div className="section-title text-center text-md-start mb-4">
-          <h2 className="fw-bold">Technical Skills</h2>
-          <p className="text-muted">
+        <div className="skills-header text-center text-md-start mb-4">
+          <h2 className="section-title fw-bold">Technical Skills</h2>
+          <p className="subtitle text-muted">
             Core technologies and frameworks I use to bring frontend designs and CMS platforms to life.
           </p>
         </div>

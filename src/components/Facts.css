@@ -1,29 +1,49 @@
-/* Facts Section Core */
+/* ===================================================
+   FACTS & MILESTONES SECTION - DESIGN SYSTEM
+   =================================================== */
+
 .facts {
-  padding: 45px 0;
+  padding: 50px 0;
+  background-color: #f8fafc;
 }
 
-.facts .section-title h2 {
+/* --- Section Header & Underline Divider --- */
+.facts-header .section-title {
   color: #173b6c;
-  font-size: 28px;
+  font-size: 30px;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   margin-bottom: 6px;
+  display: inline-block;
 }
 
-.facts .section-title p {
-  font-size: 14px;
-  margin-bottom: 25px;
+/* Desktop Divider Line (Left Aligned) */
+.facts-header .section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 55px;
+  height: 3.5px;
+  background: linear-gradient(90deg, #0563bb, #00b4d8);
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
 }
 
-/* Count Box Card */
+.facts-header .subtitle {
+  font-size: 14.5px;
+  color: #6c757d;
+  margin-top: 6px;
+}
+
+/* --- Count Box Cards --- */
 .facts .count-box {
   background: #ffffff;
-  padding: 24px 15px;
-  border-radius: 12px;
-  border: 1px solid #eef2f6;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 26px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,50 +53,117 @@
 
 .facts .count-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(5, 99, 187, 0.1);
+  border-color: #cbd5e1;
 }
 
-/* Fact Icons */
+/* --- Styled Icon Badges --- */
+.facts .icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: transform 0.3s ease;
+}
+
+.facts .count-box:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
 .facts .fact-icon {
-  font-size: 32px;
+  font-size: 24px;
 }
 
-/* Numbers Styling */
+/* Icon Soft Background Colors */
+.client-icon {
+  background-color: #eff6ff;
+  color: #0563bb;
+}
+
+.project-icon {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+
+.support-icon {
+  background-color: #f0f9ff;
+  color: #0284c7;
+}
+
+.quality-icon {
+  background-color: #fffbeb;
+  color: #f59e0b;
+}
+
+/* --- Numbers Typography --- */
 .facts .count-number {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
   color: #173b6c;
   line-height: 1.2;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
-/* Descriptions */
+/* --- Text Typography --- */
 .facts .count-text {
   font-size: 13px;
-  color: #6c757d;
-  line-height: 1.4;
+  color: #64748b;
+  line-height: 1.5;
 }
 
 .facts .count-text strong {
-  color: #2b3035;
+  color: #1e293b;
+  font-weight: 600;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 576px) {
+/* ===================================================
+   MOBILE RESPONSIVE OVERRIDES (<= 768px)
+   =================================================== */
+@media (max-width: 768px) {
   .facts {
-    padding: 30px 0;
+    padding: 32px 0;
+  }
+
+  /* Centered Header & Underline Divider on Mobile */
+  .facts-header {
+    text-align: center !important;
+  }
+
+  .facts-header .section-title {
+    font-size: 24px !important;
+  }
+
+  .facts-header .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .facts-header .subtitle {
+    font-size: 13.5px !important;
+    margin-bottom: 20px !important;
   }
 
   .facts .count-box {
-    padding: 16px 10px;
+    padding: 18px 12px;
+  }
+
+  .facts .icon-wrapper {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
   }
 
   .facts .fact-icon {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .facts .count-number {
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 4px;
   }
 
   .facts .count-text {

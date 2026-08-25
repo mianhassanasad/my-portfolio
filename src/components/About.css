@@ -1,86 +1,128 @@
-/* About Section Core Styling */
+/* ===================================================
+   ABOUT SECTION - MODERN COLOR & ALIGNMENT SYSTEM
+   =================================================== */
+
 .about {
-  padding: 40px 0;
+  padding: 50px 0;
+  background-color: #ffffff;
 }
 
-.about .section-title {
+/* --- Section Title & Underline Divider --- */
+.about-header .section-title {
   color: #173b6c;
-  font-size: 28px;
+  font-size: 30px;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   margin-bottom: 6px;
+  display: inline-block;
 }
 
-.about .subtitle {
-  font-size: 14px;
+/* Desktop Divider Line (Left Aligned) */
+.about-header .section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 55px;
+  height: 3.5px;
+  background: linear-gradient(90deg, #0563bb, #00b4d8);
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
 }
 
-/* Role Title & Paragraph */
+.about-header .subtitle {
+  font-size: 14.5px;
+  color: #6c757d;
+  margin-top: 6px;
+}
+
+/* --- Role Title & Body Text --- */
 .role-title {
   color: #0563bb;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.4;
 }
 
 .about-text {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4a5568;
 }
 
-/* Download Button */
+/* --- Download Resume Button --- */
 .btn-download {
   color: #ffffff !important;
-  background-color: #0563bb !important;
-  padding: 10px 22px;
+  background: linear-gradient(135deg, #0563bb 0%, #0077e6 100%) !important;
+  padding: 11px 26px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 14px rgba(5, 99, 187, 0.22);
+  text-decoration: none !important;
 }
 
 .btn-download:hover {
-  background-color: #0675ed !important;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #0052a3 0%, #0563bb 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 99, 187, 0.35);
 }
 
-/* Info Card Area */
+/* --- Info Grid Card --- */
 .info-card {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
 }
 
 .info-item {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
 }
 
 .info-label {
   font-weight: 600;
-  color: #2b3035;
-  width: 110px;
+  color: #1e293b;
+  width: 115px;
   font-size: 13.5px;
+  flex-shrink: 0;
 }
 
 .info-val {
-  color: #555;
+  color: #475569;
   font-size: 13.5px;
   word-break: break-word;
 }
 
-/* Upwork Interactive Button */
+.info-email {
+  color: #0563bb !important;
+  font-weight: 500;
+}
+
+.info-email:hover {
+  text-decoration: underline !important;
+}
+
+/* --- Freelance Badge & Pulsing Indicator --- */
 .btn-freelance-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background-color: #e6f4ea;
-  color: #137333 !important;
-  border: 1px solid #ceead6;
+  gap: 7px;
+  background-color: #ecfdf5;
+  color: #047857 !important;
+  border: 1px solid #a7f3d0;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -90,16 +132,16 @@
 }
 
 .btn-freelance-badge:hover {
-  background-color: #137333;
+  background-color: #10b981;
   color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(19, 115, 51, 0.25);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1.5px);
 }
 
 .status-dot {
-  width: 7px;
-  height: 7px;
-  background-color: #1e8e3e;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
   border-radius: 50%;
   display: inline-block;
   animation: pulse-green 1.8s infinite;
@@ -112,42 +154,51 @@
 @keyframes pulse-green {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(30, 142, 62, 0.7);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
   70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(30, 142, 62, 0);
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(30, 142, 62, 0);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
   }
 }
 
-/* Skills Badges */
+/* --- Tech Badges --- */
 .fs-7 {
-  font-size: 11px;
+  font-size: 11.5px;
   letter-spacing: 0.5px;
 }
 
 .tech-badge {
   background-color: #ffffff;
-  color: #2b3035;
-  border: 1px solid #dcdcdc;
-  padding: 5px 12px;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  padding: 5px 14px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
 }
 
-/* Platform Modal Styling */
+.tech-badge:hover {
+  border-color: #0563bb;
+  color: #0563bb;
+  transform: translateY(-1px);
+}
+
+/* --- Hire Platform Modal Styling --- */
 .hire-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,32 +208,37 @@
 
 .hire-modal-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   width: 100%;
-  max-width: 360px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 380px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .btn-close-modal {
   background: none;
   border: none;
   font-size: 22px;
-  color: #888;
+  color: #94a3b8;
   cursor: pointer;
   line-height: 1;
+  transition: color 0.2s;
+}
+
+.btn-close-modal:hover {
+  color: #1e293b;
 }
 
 .platform-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  border-radius: 10px;
   text-decoration: none !important;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .platform-link.upwork {
@@ -218,21 +274,63 @@
   color: #ffffff !important;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 576px) {
+/* ===================================================
+   MOBILE RESPONSIVE OVERRIDES (<= 768px)
+   =================================================== */
+@media (max-width: 768px) {
   .about {
-    padding: 25px 0;
+    padding: 32px 0;
+  }
+
+  /* Centered Header & Underline Divider on Mobile */
+  .about-header {
+    text-align: center !important;
+  }
+
+  .about-header .section-title {
+    font-size: 24px !important;
+  }
+
+  .about-header .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .about-header .subtitle {
+    font-size: 13.5px !important;
+    margin-bottom: 20px !important;
   }
 
   .role-title {
-    font-size: 18px;
+    font-size: 18px !important;
+    text-align: center !important;
+  }
+
+  .about-text {
+    text-align: center !important;
+    font-size: 13.5px !important;
   }
 
   .btn-download {
-    width: 100%;
+    width: 100% !important;
+    padding: 12px 0;
+  }
+
+  .info-card {
+    padding: 14px !important;
+  }
+
+  .info-item {
+    justify-content: space-between;
+    padding: 3px 0;
   }
 
   .info-label {
-    width: 100px;
+    width: 95px !important;
+    font-size: 12.5px !important;
+  }
+
+  .info-val {
+    font-size: 12.5px !important;
   }
 }

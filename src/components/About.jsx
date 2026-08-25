@@ -11,18 +11,18 @@ function About() {
         {/* Section Header */}
         <div className="about-header text-center text-md-start mb-4">
           <h2 className="section-title fw-bold">About Me</h2>
-          <p className="text-muted subtitle">
+          <p className="subtitle text-muted">
             Transforming ideas into responsive web experiences
           </p>
         </div>
 
         {/* Main Content Area */}
         <div className="about-content">
-          <h3 className="role-title mb-3">
+          <h3 className="role-title mb-3 text-center text-md-start">
             Frontend & WordPress Developer (3+ Years Experience)
           </h3>
 
-          <p className="about-text text-secondary mb-4">
+          <p className="about-text text-secondary mb-4 text-center text-md-start">
             Passionate Web Developer specialized in building high-performing, user-friendly websites. 
             With 3+ years of experience across <strong>React.js</strong> modern front-end stack and 
             <strong> WordPress / CMS Page Builders (Elementor & Divi)</strong>, I focus on delivering 
@@ -30,7 +30,7 @@ function About() {
           </p>
 
           {/* Download Resume Button Area */}
-          <div className="mb-4">
+          <div className="mb-4 text-center text-md-start">
             <a
               id="download-btn"
               className="btn btn-download shadow-sm"
@@ -55,7 +55,7 @@ function About() {
                 </div>
                 <div className="info-item mb-2 mb-md-0">
                   <span className="info-label">Email:</span>
-                  <a href="mailto:mianhassanwp@gmail.com" className="info-val text-primary text-decoration-none">
+                  <a href="mailto:mianhassanwp@gmail.com" className="info-val info-email text-decoration-none">
                     mianhassanwp@gmail.com
                   </a>
                 </div>
@@ -85,9 +85,9 @@ function About() {
           </div>
 
           {/* Tech Badges */}
-          <div className="tech-badges-wrapper">
+          <div className="tech-badges-wrapper text-center text-md-start">
             <h6 className="text-uppercase text-muted fw-bold mb-3 fs-7">Core Skills & Tools</h6>
-            <div className="d-flex flex-wrap gap-2">
+            <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
               <span className="tech-badge">React.js</span>
               <span className="tech-badge">JavaScript (ES6+)</span>
               <span className="tech-badge">WordPress</span>
@@ -105,7 +105,7 @@ function About() {
         <div className="hire-modal-backdrop" onClick={() => setShowModal(false)}>
           <div className="hire-modal-card" onClick={(e) => e.stopPropagation()}>
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="m-0 fw-bold">Hire Me On</h5>
+              <h5 className="m-0 fw-bold text-dark">Hire Me On</h5>
               <button className="btn-close-modal" onClick={() => setShowModal(false)}>
                 &times;
               </button>

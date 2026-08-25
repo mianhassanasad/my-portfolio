@@ -205,3 +205,18 @@
   }
 
 }
+/* Mobile Toggle Icon Overlap Fix */
+.mobile-nav-toggle {
+  position: fixed !important;
+  top: 15px !important;
+  right: 15px !important;
+  z-index: 9999 !important;
+  background-color: #0563bb !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

@@ -24,8 +24,8 @@ function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Direct mailto trigger fallback (Optional: Replace with EmailJS service if needed)
-    const mailtoLink = `mailto:mianhassanmhofficial@gmail.com?subject=${encodeURIComponent(
+    // Direct mailto trigger fallback
+    const mailtoLink = `mailto:mianhassandev@gmail.com?subject=${encodeURIComponent(
       formData.subject || "Portfolio Inquiry"
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -41,9 +41,9 @@ function Contact() {
     <section id="contact" className="contact section-bg">
       <div className="container">
         {/* Section Header */}
-        <div className="section-title text-center text-md-start mb-4">
-          <h2 className="fw-bold">Contact</h2>
-          <p className="text-muted">
+        <div className="contact-header text-center text-md-start mb-4">
+          <h2 className="section-title fw-bold">Contact</h2>
+          <p className="subtitle text-muted">
             Feel free to reach out anytime. I am open to discussing new projects, web development opportunities, or creative collaborations.
           </p>
         </div>
@@ -88,12 +88,12 @@ function Contact() {
                 </div>
               </div>
 
-              <div className="map-wrapper mt-3">
+              <div className="map-wrapper mt-4">
                 <iframe
                   title="Google Map"
                   src="https://maps.google.com/maps?q=Lahore,%20Pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   width="100%"
-                  height="220"
+                  height="210"
                   style={{ border: 0, borderRadius: "10px" }}
                   allowFullScreen
                   loading="lazy"
@@ -107,7 +107,7 @@ function Contact() {
           <div className="col-lg-7">
             <form className="contact-form-card" onSubmit={handleSubmit}>
               {submitted && (
-                <div className="alert alert-success border-0 rounded-3 mb-3 text-center">
+                <div className="alert alert-custom border-0 rounded-3 mb-4 text-center">
                   Thank you! Opening your email app to send the message...
                 </div>
               )}
@@ -165,10 +165,10 @@ function Contact() {
                 <textarea
                   className="form-control"
                   id="message"
-                  rows={6}
+                  rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your project requirement..."
+                  placeholder="Tell me about your project requirements..."
                   required
                 ></textarea>
               </div>

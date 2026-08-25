@@ -1,7 +1,7 @@
 import "./Portfolio.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSearchPlus, FaExternalLinkAlt } from "react-icons/fa";
+import { FaSearchPlus, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import projectData from "../data/projectData";
 
 function Portfolio() {
@@ -36,13 +36,17 @@ function Portfolio() {
   return (
     <section id="portfolio" className="portfolio section-bg">
       <div className="container">
-        <div className="section-title">
-          <h2>Portfolio</h2>
-          <p>Explore recent WordPress, React, and E-Commerce builds.</p>
+        
+        {/* Section Header */}
+        <div className="portfolio-header text-center text-md-start mb-4">
+          <h2 className="section-title fw-bold">Portfolio</h2>
+          <p className="subtitle text-muted">
+            Explore recent WordPress, React, and E-Commerce builds.
+          </p>
         </div>
 
         {/* Filter Bar with Mobile Scroll Wrapper */}
-        <div className="filter-container text-center mb-4">
+        <div className="filter-container mb-4">
           <ul id="portfolio-flters">
             {categories.map((cat) => (
               <li
@@ -67,30 +71,36 @@ function Portfolio() {
                     alt={project.title}
                     className="img-fluid"
                   />
+                  {/* Action Overlay */}
+                  <div className="portfolio-overlay">
+                    <div className="portfolio-actions">
+                      <button
+                        className="action-btn"
+                        onClick={() => setSelectedImage(project.image)}
+                        aria-label="Preview Image"
+                        title="Preview"
+                      >
+                        <FaSearchPlus />
+                      </button>
+
+                      <Link
+                        to={`/project/${project.slug}`}
+                        className="action-btn"
+                        aria-label="Project Details"
+                        title="View Details"
+                      >
+                        <FaExternalLinkAlt />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="portfolio-card-body">
                   <div className="portfolio-card-info">
                     <h4>{project.title}</h4>
-                    <p>{formatCategoryName(project.category)}</p>
-                  </div>
-
-                  <div className="portfolio-actions">
-                    <button
-                      className="action-btn"
-                      onClick={() => setSelectedImage(project.image)}
-                      aria-label="Preview Image"
-                    >
-                      <FaSearchPlus />
-                    </button>
-
-                    <Link
-                      to={`/project/${project.slug}`}
-                      className="action-btn"
-                      aria-label="Project Details"
-                    >
-                      <FaExternalLinkAlt />
-                    </Link>
+                    <span className="category-badge">
+                      {formatCategoryName(project.category)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -102,10 +112,18 @@ function Portfolio() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
+          <button 
+            className="lightbox-close" 
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close Preview"
+          >
+            <FaTimes />
+          </button>
           <img
             src={selectedImage}
             alt="Portfolio Preview"
             className="lightbox-image"
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
       )}
