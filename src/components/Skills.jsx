@@ -13,9 +13,7 @@ function Skills() {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.3,
-      }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -26,27 +24,27 @@ function Skills() {
   }, []);
 
   const leftSkills = [
-    { name: "HTML", value: 100 },
-    { name: "CSS", value: 90 },
-    { name: "JavaScript", value: 40 },
+    { name: "HTML5 / CSS3", value: 95 },
+    { name: "JavaScript (ES6+)", value: 85 },
+    { name: "React.js", value: 80 },
   ];
 
   const rightSkills = [
-    { name: "PHP", value: 80 },
-    { name: "WordPress", value: 90 },
-    { name: "Photoshop", value: 55 },
+    { name: "WordPress / CMS", value: 90 },
+    { name: "Elementor / Divi", value: 92 },
+    { name: "Responsive & UI Design", value: 88 },
   ];
 
   const SkillItem = ({ skill }) => (
-    <div className="progress">
-      <span className="skill">
-        {skill.name}
-        <i className="val">{skill.value}%</i>
-      </span>
+    <div className="skill-box">
+      <div className="skill-info">
+        <span className="skill-name">{skill.name}</span>
+        <span className="skill-val">{skill.value}%</span>
+      </div>
 
       <div className="progress-bar-wrap">
         <div
-          className="progress-bar"
+          className="progress-bar-fill"
           style={{
             width: animate ? `${skill.value}%` : "0%",
           }}
@@ -56,44 +54,30 @@ function Skills() {
   );
 
   return (
-    <section
-      id="skills"
-      className="skills section-bg"
-      ref={sectionRef}
-    >
+    <section id="skills" className="skills section-bg" ref={sectionRef}>
       <div className="container">
 
-        <div className="section-title">
-          <h2>Skills</h2>
-
-          <p>
-            I specialize in building responsive, modern and
-            user-friendly websites using HTML, CSS,
-            JavaScript, React and WordPress.
+        {/* Section Title */}
+        <div className="section-title text-center text-md-start mb-4">
+          <h2 className="fw-bold">Technical Skills</h2>
+          <p className="text-muted">
+            Core technologies and frameworks I use to bring frontend designs and CMS platforms to life.
           </p>
-
         </div>
 
-        <div className="row skills-content">
-
-          <div className="col-lg-6">
+        {/* Skills Grid */}
+        <div className="row g-3 g-md-4">
+          <div className="col-12 col-md-6">
             {leftSkills.map((skill) => (
-              <SkillItem
-                key={skill.name}
-                skill={skill}
-              />
+              <SkillItem key={skill.name} skill={skill} />
             ))}
           </div>
 
-          <div className="col-lg-6">
+          <div className="col-12 col-md-6">
             {rightSkills.map((skill) => (
-              <SkillItem
-                key={skill.name}
-                skill={skill}
-              />
+              <SkillItem key={skill.name} skill={skill} />
             ))}
           </div>
-
         </div>
 
       </div>

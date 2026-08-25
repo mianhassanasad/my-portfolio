@@ -1,11 +1,31 @@
+/* About Section Core Styling */
 .about {
   padding: 40px 0;
 }
 
-.section-heading {
+.about .section-title {
   color: #173b6c;
+  font-size: 28px;
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.about .subtitle {
+  font-size: 14px;
+}
+
+/* Role Title & Paragraph */
+.role-title {
+  color: #0563bb;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* Download Button */
@@ -18,47 +38,95 @@
   font-size: 14px;
   transition: all 0.3s ease;
   border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-download:hover {
   background-color: #0675ed !important;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* Role Title & Description */
-.role-title {
-  color: #0563bb;
-  font-weight: 700;
-  font-size: 22px;
-}
-
-.about-text {
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Info Card */
+/* Info Card Area */
 .info-card {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
+}
+
+.info-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .info-label {
   font-weight: 600;
   color: #2b3035;
   width: 110px;
-  display: inline-block;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 
 .info-val {
   color: #555;
-  font-size: 14px;
+  font-size: 13.5px;
+  word-break: break-word;
 }
 
-/* Badges Styling */
-.fs-7 {
+/* Upwork Interactive Button */
+.btn-freelance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #e6f4ea;
+  color: #137333 !important;
+  border: 1px solid #ceead6;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-freelance-badge:hover {
+  background-color: #137333;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(19, 115, 51, 0.25);
+  transform: translateY(-1px);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #1e8e3e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-green 1.8s infinite;
+}
+
+.btn-freelance-badge:hover .status-dot {
+  background-color: #ffffff;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(30, 142, 62, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(30, 142, 62, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(30, 142, 62, 0);
+  }
+}
+
+/* Skills Badges */
+.fs-7 {
+  font-size: 11px;
   letter-spacing: 0.5px;
 }
 
@@ -66,16 +134,105 @@
   background-color: #ffffff;
   color: #2b3035;
   border: 1px solid #dcdcdc;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Platform Modal Styling */
+.hire-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+.hire-modal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.platform-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.2s ease;
 }
 
-.tech-badge:hover {
-  border-color: #0563bb;
-  color: #0563bb;
-  background-color: #f0f7ff;
+.platform-link.upwork {
+  background: #f2faf1;
+  color: #14a800 !important;
+  border: 1px solid #ccebc8;
+}
+
+.platform-link.upwork:hover {
+  background: #14a800;
+  color: #ffffff !important;
+}
+
+.platform-link.fiverr {
+  background: #f0faf5;
+  color: #1dbf73 !important;
+  border: 1px solid #bce8d2;
+}
+
+.platform-link.fiverr:hover {
+  background: #1dbf73;
+  color: #ffffff !important;
+}
+
+.platform-link.freelancer {
+  background: #f0f7ff;
+  color: #0081e8 !important;
+  border: 1px solid #c2e0fc;
+}
+
+.platform-link.freelancer:hover {
+  background: #0081e8;
+  color: #ffffff !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .about {
+    padding: 25px 0;
+  }
+
+  .role-title {
+    font-size: 18px;
+  }
+
+  .btn-download {
+    width: 100%;
+  }
+
+  .info-label {
+    width: 100px;
+  }
 }

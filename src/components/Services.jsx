@@ -1,12 +1,21 @@
 import "./Services.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import {
+  FaQuoteLeft,
+  FaQuoteRight,
+  FaCode,
+  FaWordpress,
+  FaMobileAlt,
+  FaRocket,
+  FaSearch,
+  FaTools,
+} from "react-icons/fa";
+
 import img1 from "../assets/Testimonials/testimonials-1.jpg";
 import img2 from "../assets/Testimonials/testimonials-2.jpg";
 import img3 from "../assets/Testimonials/testimonials-3.jpg";
@@ -14,173 +23,175 @@ import img4 from "../assets/Testimonials/testimonials-4.jpg";
 import img5 from "../assets/Testimonials/testimonials-5.jpg";
 
 function Services() {
-    const testimonials = [
-      {
-        id: 1,
-        name: "Saul Goodman",
-        role: "CEO & Founder",
-        image: img1,
-        text: "Proin iaculis purus consequat sem cure dignissim."
-      },
+  const servicesList = [
+    {
+      id: 1,
+      icon: <FaCode />,
+      title: "React Web Development",
+      description:
+        "Building fast, reactive, and scalable single-page web applications (SPA) using React.js and modern JS tools.",
+    },
+    {
+      id: 2,
+      icon: <FaWordpress />,
+      title: "WordPress Customization",
+      description:
+        "Customizing WordPress themes, Elementor/Divi page builds, e-commerce stores, and plugin integrations.",
+    },
+    {
+      id: 3,
+      icon: <FaMobileAlt />,
+      title: "Fully Responsive Design",
+      description:
+        "Ensuring seamless layouts, fluid typography, and mobile-first experience across all modern mobile and desktop screens.",
+    },
+    {
+      id: 4,
+      icon: <FaRocket />,
+      title: "Speed & Performance",
+      description:
+        "Optimizing site assets, lazy loading images, clean code structure, and caching for ultra-fast loading speed.",
+    },
+    {
+      id: 5,
+      icon: <FaSearch />,
+      title: "On-Page SEO Optimization",
+      description:
+        "Implementing clean meta tags, semantic HTML tags, speed tweaks, and accessibility best practices for high search rankings.",
+    },
+    {
+      id: 6,
+      icon: <FaTools />,
+      title: "Maintenance & Support",
+      description:
+        "Regular security audits, bug fixing, plugin updates, content management, and ongoing website technical assistance.",
+    },
+  ];
 
-      {
-        id: 2,
-        name: "Sara Wilsson",
-        role: "Designer",
-        image: img2,
-        text: "Export tempor illum tamen malis malis eram quae."
-      },
+  const testimonials = [
+    {
+      id: 1,
+      name: "Saul Goodman",
+      role: "CEO & Founder",
+      image: img1,
+      text: "Hassan delivered our web platform ahead of schedule with exceptional pixel-perfect detail. Highly reliable developer!",
+    },
+    {
+      id: 2,
+      name: "Sara Wilsson",
+      role: "Designer",
+      image: img2,
+      text: "Working with Hassan was a smooth experience. He transformed our Figma prototypes into accurate React components seamlessly.",
+    },
+    {
+      id: 3,
+      name: "Jena Karlis",
+      role: "Store Owner",
+      image: img3,
+      text: "Our WordPress site speeds improved dramatically after optimization. Sales went up within the first two weeks!",
+    },
+    {
+      id: 4,
+      name: "Matt Brandon",
+      role: "Freelancer",
+      image: img4,
+      text: "Great communication, top-tier technical skills in Elementor & React, and dedicated project delivery. Highly recommended!",
+    },
+    {
+      id: 5,
+      name: "John Larson",
+      role: "Entrepreneur",
+      image: img5,
+      text: "Very skilled developer. Clean code structure, mobile responsiveness, and easy ongoing support whenever required.",
+    },
+  ];
 
-      {
-        id: 3,
-        name: "Jena Karlis",
-        role: "Store Owner",
-        image: img3,
-        text: "Enim nisi quem export duis labore cillum."
-      },
+  return (
+    <>
+      {/* Services Section */}
+      <section id="services" className="services">
+        <div className="container">
+          <div className="section-title text-center text-md-start mb-4">
+            <h2 className="fw-bold">Services</h2>
+            <p className="text-muted">
+              High-quality web development services tailored to grow your digital presence and optimize performance.
+            </p>
+          </div>
 
-      {
-        id: 4,
-        name: "Matt Brandon",
-        role: "Freelancer",
-        image: img4,
-        text: "Fugiat enim eram quae cillum dolore."
-      },
-
-      {
-        id: 5,
-        name: "John Larson",
-        role: "Entrepreneur",
-        image: img5,
-        text: "Quis quorum aliqua sint quem legam."
-      },
-    ];
-    return (
-        <>
-        
-            <section id="services" className="services">
-                <div className="container">
-
-                    <div className="section-title">
-                        <h2>Services</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-                            in iste officiis commodi quidem hic quas.</p>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                            <div className="icon"><i className="icofont-computer"></i></div>
-                            <h4 className="title"><a href="">Lorem Ipsum</a></h4>
-                            <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                occaecati cupiditate non provident</p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                            <div className="icon"><i className="icofont-chart-bar-graph"></i></div>
-                            <h4 className="title"><a href="">Dolor Sitema</a></h4>
-                            <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat tarad limino ata</p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                            <div className="icon"><i className="icofont-earth"></i></div>
-                            <h4 className="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur</p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                            <div className="icon"><i className="icofont-image"></i></div>
-                            <h4 className="title"><a href="">Magni Dolores</a></h4>
-                            <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum</p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                            <div className="icon"><i className="icofont-settings"></i></div>
-                            <h4 className="title"><a href="">Nemo Enim</a></h4>
-                            <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                voluptatum deleniti atque</p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                            <div className="icon"><i className="icofont-tasks-alt"></i></div>
-                            <h4 className="title"><a href="">Eiusmod Tempor</a></h4>
-                            <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                                soluta nobis est eligendi</p>
-                        </div>
-                    </div>
-
+          <div className="row g-4">
+            {servicesList.map((service) => (
+              <div key={service.id} className="col-lg-4 col-md-6">
+                <div className="service-box">
+                  <div className="service-icon">{service.icon}</div>
+                  <h4 className="service-title">{service.title}</h4>
+                  <p className="service-description">{service.description}</p>
                 </div>
-            </section>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Testimonials Section------------------------- */}
-            <section id="testimonials" className="testimonials section-bg">
-                <div className="container">
+      {/* Testimonials Section */}
+      <section id="testimonials" className="testimonials section-bg">
+        <div className="container">
+          <div className="section-title text-center text-md-start mb-4">
+            <h2 className="fw-bold">Testimonials</h2>
+            <p className="text-muted">
+              What my clients and partners say about my commitment, work quality, and delivery.
+            </p>
+          </div>
 
-                    <div className="section-title">
-                        <h2>Testimonials</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-                            in iste officiis commodi quidem hic quas.</p>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={25}
+            loop={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+            }}
+            className="testimonials-swiper"
+          >
+            {testimonials.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="testimonial-item">
+                  <p className="testimonial-text">
+                    <FaQuoteLeft className="quote-icon quote-left" />
+                    {item.text}
+                    <FaQuoteRight className="quote-icon quote-right" />
+                  </p>
+
+                  <div className="testimonial-user">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="testimonial-img"
+                    />
+                    <div className="user-info">
+                      <h3>{item.name}</h3>
+                      <h4>{item.role}</h4>
                     </div>
-
-                    <Swiper
-  modules={[Autoplay, Pagination]}
-  spaceBetween={30}
-  loop={true}
-  autoplay={{
-    delay: 3000,
-    disableOnInteraction: false,
-  }}
-  pagination={{ clickable: true }}
-  breakpoints={{
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    992: {
-      slidesPerView: 3,
-    },
-  }}
->
-
-  {testimonials.map((item) => (
-
-    <SwiperSlide key={item.id}>
-
-      <div className="testimonial-item">
-
-        <p>
-          <FaQuoteLeft className="quote-icon-left" />
-          {" "}
-          {item.text}
-          {" "}
-          <FaQuoteRight className="quote-icon-right" />
-        </p>
-
-        <img
-          src={item.image}
-          alt={item.name}
-          className="testimonial-img"
-        />
-
-        <h3>{item.name}</h3>
-
-        <h4>{item.role}</h4>
-
-      </div>
-
-    </SwiperSlide>
-
-  ))}
-
-</Swiper>
-
+                  </div>
                 </div>
-                
-            </section>
-            
-        </>
-    );
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+    </>
+  );
 }
 
 export default Services;

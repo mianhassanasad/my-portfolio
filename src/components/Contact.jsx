@@ -1,125 +1,186 @@
 import "./Contact.css";
-
+import { useState } from "react";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhoneAlt,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 function Contact() {
-  return (
-    <section id="contact" className="contact">
-      <div className="container">
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-        <div className="section-title">
-          <h2>Contact</h2>
-          <p>
-            Feel free to contact me anytime. I'm always open to discussing
-            new projects, creative ideas, or opportunities.
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    // Direct mailto trigger fallback (Optional: Replace with EmailJS service if needed)
+    const mailtoLink = `mailto:mianhassanmhofficial@gmail.com?subject=${encodeURIComponent(
+      formData.subject || "Portfolio Inquiry"
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )}`;
+    window.location.href = mailtoLink;
+
+    setSubmitted(true);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
+  return (
+    <section id="contact" className="contact section-bg">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-title text-center text-md-start mb-4">
+          <h2 className="fw-bold">Contact</h2>
+          <p className="text-muted">
+            Feel free to reach out anytime. I am open to discussing new projects, web development opportunities, or creative collaborations.
           </p>
         </div>
 
-        <div className="row">
-
-          {/* Left Side */}
-          <div className="col-lg-5 d-flex align-items-stretch">
-
-            <div className="info">
-
-              <div className="address">
-                <FaMapMarkerAlt className="contact-icon" />
-                <h4>Location:</h4>
-                <p>Lahore, Pakistan</p>
+        <div className="row g-4">
+          {/* Left Side Info Box */}
+          <div className="col-lg-5">
+            <div className="contact-info-card h-100">
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaMapMarkerAlt />
+                </div>
+                <div className="details">
+                  <h4>Location:</h4>
+                  <p>Lahore, Pakistan</p>
+                </div>
               </div>
 
-              <div className="email">
-                <FaEnvelope className="contact-icon" />
-                <h4>Email:</h4>
-                <p>mianhassanmhofficial@gmail.com</p>
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaEnvelope />
+                </div>
+                <div className="details">
+                  <h4>Email:</h4>
+                  <p>
+                    <a href="mailto:mianhassandev@gmail.com">
+                      mianhassandev@gmail.com
+                    </a>
+                  </p>
+                </div>
               </div>
 
-              <div className="phone">
-                <FaPhoneAlt className="contact-icon" />
-                <h4>Call:</h4>
-                <p>+92 324 4244882</p>
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaPhoneAlt />
+                </div>
+                <div className="details">
+                  <h4>Call / WhatsApp:</h4>
+                  <p>
+                    <a href="tel:+923244244882">+92 324 4244882</a>
+                  </p>
+                </div>
               </div>
 
-              <iframe
-                title="Google Map"
-                src="https://maps.google.com/maps?q=Lahore,%20Pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="290"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-
+              <div className="map-wrapper mt-3">
+                <iframe
+                  title="Google Map"
+                  src="https://maps.google.com/maps?q=Lahore,%20Pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, borderRadius: "10px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
-
           </div>
 
-          {/* Right Side */}
-          <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          {/* Right Side Form */}
+          <div className="col-lg-7">
+            <form className="contact-form-card" onSubmit={handleSubmit}>
+              {submitted && (
+                <div className="alert alert-success border-0 rounded-3 mb-3 text-center">
+                  Thank you! Opening your email app to send the message...
+                </div>
+              )}
 
-            <form className="php-email-form">
-
-              <div className="row">
-
-                <div className="form-group col-md-6">
-                  <label htmlFor="name">Your Name</label>
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <label htmlFor="name" className="form-label">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. John Doe"
+                    required
                   />
                 </div>
 
-                <div className="form-group col-md-6">
-                  <label htmlFor="email">Your Email</label>
+                <div className="col-md-6">
+                  <label htmlFor="email" className="form-label">
+                    Your Email
+                  </label>
                   <input
                     type="email"
                     className="form-control"
                     id="email"
-                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="name@example.com"
+                    required
                   />
                 </div>
-
               </div>
 
-              <div className="form-group mt-3">
-                <label htmlFor="subject">Subject</label>
+              <div className="mt-3">
+                <label htmlFor="subject" className="form-label">
+                  Subject
+                </label>
                 <input
                   type="text"
                   className="form-control"
                   id="subject"
-                  placeholder="Enter subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Web Development Project Inquiry"
                 />
               </div>
 
-              <div className="form-group mt-3">
-                <label htmlFor="message">Message</label>
+              <div className="mt-3">
+                <label htmlFor="message" className="form-label">
+                  Message
+                </label>
                 <textarea
                   className="form-control"
                   id="message"
-                  rows={8}
-                  placeholder="Write your message..."
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project requirement..."
+                  required
                 ></textarea>
               </div>
 
-              <div className="text-center mt-4">
-                <button type="submit">
-                  Send Message
+              <div className="text-center text-md-start mt-4">
+                <button type="submit" className="btn btn-send-message">
+                  <FaPaperPlane className="me-2" /> Send Message
                 </button>
               </div>
-
             </form>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
