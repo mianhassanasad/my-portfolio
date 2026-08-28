@@ -6,7 +6,6 @@
   width: 300px;
   transition: all ease-in-out 0.5s;
   z-index: 9997;
-  transition: all 0.5s;
   padding: 0 15px;
   background: #040b14;
   overflow-y: auto;
@@ -17,6 +16,7 @@
   display: block;
   width: 120px;
   border: 8px solid #2c2f3f;
+  border-radius: 50%;
 }
 
 #header .profile h1 {
@@ -24,26 +24,26 @@
   margin: 0;
   padding: 0;
   font-weight: 600;
-  -moz-text-align-last: center;
-  text-align-last: center;
+  text-align: center;
   font-family: "Poppins", sans-serif;
 }
 
-#header .profile h1 a, #header .profile h1 a:hover {
+#header .profile h1 a, 
+#header .profile h1 a:hover {
   color: #fff;
   text-decoration: none;
 }
 
 #header .profile .social-links a {
   font-size: 18px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #212431;
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
   margin-right: 4px;
   border-radius: 50%;
-  text-align: center;
   width: 36px;
   height: 36px;
   transition: 0.3s;
@@ -59,28 +59,18 @@
   margin-left: 300px;
 }
 
-@media (max-width: 1199px) {
-  #header {
-    left: -300px;
-  }
-  #main {
-    margin-left: 0;
-  }
-}
-
-
 /* Desktop Navigation */
 .nav-menu {
   padding-top: 30px;
 }
 
-.nav-menu * {
+.nav-menu ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.nav-menu > ul > li {
+.nav-menu li {
   position: relative;
   white-space: nowrap;
 }
@@ -90,9 +80,10 @@
   align-items: center;
   color: #a8a9b4;
   padding: 12px 15px;
-  margin-bottom: 8px;
+  margin-bottom: i8px;
   transition: 0.3s;
   font-size: 15px;
+  text-decoration: none;
 }
 
 .nav-icon {
@@ -102,8 +93,9 @@
   transition: .3s;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  text-decoration: none;
+.nav-menu a:hover, 
+.nav-menu .active > a, 
+.nav-menu li:hover > a {
   color: #fff;
 }
 
@@ -112,111 +104,48 @@
 .nav-menu .active .nav-icon {
   color: #149ddd;
 }
-.social-links svg{
-  font-size:18px;
-}
-/* Mobile Navigation */
+
+/* Mobile Navigation Toggle Button */
 .mobile-nav-toggle {
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  z-index: 9998;
-  border: 0;
-  background: none;
-  font-size: 24px;
-  transition: all 0.4s;
-  outline: none !important;
-  line-height: 1;
-  cursor: pointer;
-  text-align: right;
+  display: none;
 }
 
-.mobile-nav-toggle svg{
-  color:white;
-  font-size:22px;
-}
-
-.mobile-nav-active {
-  overflow: hidden;
-}
-
-.mobile-nav-active #header {
-  left: 0;
-}
-
-.mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
-}
-
-
-
-
-/* ===========================
-   Mobile Navigation
-=========================== */
-
-.mobile-nav-toggle{
-  display:none;
-}
-
-/* Mobile */
-
-@media (max-width:991px){
-
-  .mobile-nav-toggle{
-
-    display:block;
-
-    position:fixed;
-
-    top:20px;
-
-    right:20px;
-
-    width:35px;
-
-    height:40px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#173b6c;
-
-    color:#fff;
-
-    font-size:26px;
-
-    z-index:9999;
-
-    cursor:pointer;
+/* Responsive Styles for Mobile & Tablets */
+@media (max-width: 1199px) {
+  #header {
+    left: -300px;
+  }
+  
+  #main {
+    margin-left: 0;
   }
 
-  #header{
-
-    left:-300px;
-
-    transition:.4s;
+  .mobile-nav-toggle {
+    display: flex !important;
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background-color: #0563bb !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 
-  #header.header-active{
-
-    left:0;
+  .mobile-nav-toggle svg {
+    color: #fff !important;
+    font-size: 20px !important;
   }
 
-}
-/* Mobile Toggle Icon Overlap Fix */
-.mobile-nav-toggle {
-  position: fixed !important;
-  top: 15px !important;
-  right: 15px !important;
-  z-index: 9999 !important;
-  background-color: #0563bb !important;
-  color: #ffffff !important;
-  border-radius: 50% !important;
-  width: 40px !important;
-  height: 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  #header.header-active {
+    left: 0;
+  }
 }

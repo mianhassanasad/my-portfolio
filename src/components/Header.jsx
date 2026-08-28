@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 import profileImg from "../assets/profile.jpg";
 
@@ -18,40 +19,45 @@ import {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Navigation Items
+  // Navigation Items with section IDs
   const navItems = [
-    {
-      title: "Home",
-      link: "#hero",
-      icon: <FaHome className="nav-icon" />,
-    },
-    {
-      title: "About",
-      link: "#about",
-      icon: <FaUser className="nav-icon" />,
-    },
-    {
-      title: "Portfolio",
-      link: "#portfolio",
-      icon: <FaBriefcase className="nav-icon" />,
-    },
-    {
-      title: "Services",
-      link: "#services",
-      icon: <FaServer className="nav-icon" />,
-    },
-    {
-      title: "Contact",
-      link: "#contact",
-      icon: <FaEnvelope className="nav-icon" />,
-    },
+    { title: "Home", id: "hero", icon: <FaHome className="nav-icon" /> },
+    { title: "About", id: "about", icon: <FaUser className="nav-icon" /> },
+    { title: "Portfolio", id: "portfolio", icon: <FaBriefcase className="nav-icon" /> },
+    { title: "Services", id: "services", icon: <FaServer className="nav-icon" /> },
+    { title: "Contact", id: "contact", icon: <FaEnvelope className="nav-icon" /> },
   ];
+
+  // Handler for smooth navigation across sub-pages and home sections
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    // Agar hum pehle se home page (/) par nahi hain, toh pehle home par jayein
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Thora delay de kar section par scroll karein taaki home page load ho jaye
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // Agar pehle hi home page par hain, toh direct us section par scroll ho jaye
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <>
       {/* Mobile Menu Button */}
-
       <button
         className="mobile-nav-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -60,12 +66,10 @@ function Header() {
       </button>
 
       {/* Sidebar */}
-
       <header id="header" className={menuOpen ? "header-active" : ""}>
         <div className="d-flex flex-column">
 
           {/* Profile */}
-
           <div className="profile">
             <img
               src={profileImg}
@@ -74,65 +78,32 @@ function Header() {
             />
 
             <h1 className="text-light">
-              <a href="#hero">Mian Hassan</a>
+              <a href="/" onClick={(e) => handleNavClick(e, "hero")}>Mian Hassan</a>
             </h1>
 
             {/* Social Links */}
-
             <div className="social-links mt-3 text-center">
-
-              <a
-                href="https://twitter.com/MianHassanasad"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaTwitter />
-              </a>
-
-              <a
-                href="https://www.facebook.com/MianHassanasadmh"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaFacebookF />
-              </a>
-
-              <a
-                href="https://www.instagram.com/mian________hassan/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaInstagram />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/mian-hassan-62b9a41b6/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-
+              <a href="https://twitter.com/MianHassanasad" target="_blank" rel="noreferrer"><FaTwitter /></a>
+              <a href="https://www.facebook.com/MianHassanasadmh" target="_blank" rel="noreferrer"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/mian________hassan/" target="_blank" rel="noreferrer"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/in/mian-hassan-62b9a41b6/" target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
             </div>
           </div>
 
           {/* Navigation */}
-
           <nav className="nav-menu">
             <ul>
-
               {navItems.map((item) => (
                 <li key={item.title}>
                   <a
-                    href={item.link}
-                    onClick={() => setMenuOpen(false)}
+                    href={`#${item.id}`}
+                    onClick={(e) => handleNavClick(e, item.id)}
                   >
                     {item.icon}
                     <span>{item.title}</span>
                   </a>
                 </li>
               ))}
-
             </ul>
           </nav>
 

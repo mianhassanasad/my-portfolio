@@ -12,9 +12,10 @@ function Hero() {
 
         <div className="hero-container">
 
-          <h1>Mian Hassan</h1>
+          {/* QA Fix: Naam ki jagah role likh diya taaki double name na aaye */}
+          <h1 className="hero-title">Frontend & WordPress Developer</h1>
 
-          <p>
+          <p className="hero-subtitle">
             I'm{" "}
             <TypeAnimation
               sequence={[
