@@ -8,9 +8,11 @@ function ProjectDetails() {
 
   const project = projectData.find(
     (item) => item.slug === slug
-
   );
+  
   const [mainImage, setMainImage] = useState(project?.image);
+  const [isZoomed, setIsZoomed] = useState(false); // Zoom state added
+
   if (!project) {
     return (
       <div className="container py-5 text-center">
@@ -52,11 +54,30 @@ function ProjectDetails() {
 
           <div className="col-lg-6">
 
-            <img
-              src={mainImage}
-              alt={project.title}
-              className="project-image img-fluid shadow"
-            />
+            {/* Main Image with Click to Zoom */}
+            <div style={{ position: "relative", cursor: "pointer" }} onClick={() => setIsZoomed(true)}>
+              <img
+                src={mainImage}
+                alt={project.title}
+                className="project-image img-fluid shadow"
+              />
+              <div 
+                style={{
+                  position: "absolute",
+                  bottom: "15px",
+                  right: "15px",
+                  background: "rgba(20, 157, 221, 0.9)",
+                  color: "#fff",
+                  padding: "6px 14px",
+                  borderRadius: "20px",
+                  fontSize: "13px",
+                  fontWeight: "600",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
+                }}
+              >
+                🔍 Click to Zoom
+              </div>
+            </div>
 
             <div className="thumbnail-gallery">
 
@@ -207,6 +228,62 @@ function ProjectDetails() {
         </div>
 
       </div>
+
+      {/* Zoom Modal Pop-up */}
+      {isZoomed && (
+        <div
+          onClick={() => setIsZoomed(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 99999,
+            cursor: "zoom-out"
+          }}
+        >
+          <div style={{ position: "relative", maxWidth: "90%", maxHeight: "90%" }} onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setIsZoomed(false)}
+              style={{
+                position: "absolute",
+                top: "-45px",
+                right: "0",
+                background: "#149ddd",
+                color: "#fff",
+                border: "none",
+                borderRadius: "50%",
+                width: "38px",
+                height: "38px",
+                fontSize: "18px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
+              }}
+            >
+              &times;
+            </button>
+            <img
+              src={mainImage}
+              alt="Zoomed Preview"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "85vh",
+                objectFit: "contain",
+                borderRadius: "10px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+              }}
+            />
+          </div>
+        </div>
+      )}
 
     </section>
   );

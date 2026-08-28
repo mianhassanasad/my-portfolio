@@ -10,6 +10,10 @@ import img9 from "../assets/Portfolio/portfolio-8.jpg";
 import img10 from "../assets/Portfolio/Home-Musab-Fragrances-08-25-2026_03_11_PM.png";
 import img11 from "../assets/Portfolio/Shop-Musab-Fragrances-08-25-2026_03_39_PM.png";
 import img12 from "../assets/Portfolio/Contact-Us-Musab-Fragrances-08-25-2026_03_41_PM.png";
+import img13 from "../assets/Portfolio/Dekitotoursandtravel-–-Your-Gateway-to-Education-Abroad-08-28-2026_04_03_PM.png";
+import img14 from "../assets/Portfolio/About-Us-–-Dekitotoursandtravel-08-28-2026_04_28_PM.png";
+import img15 from "../assets/Portfolio/Blog-–-Dekitotoursandtravel-08-28-2026_04_06_PM.png";
+import img16 from "../assets/Portfolio/Contact-Us-–-Dekitotoursandtravel-08-28-2026_04_06_PM.png";
 
 const projectData = [
   {
@@ -33,22 +37,22 @@ const projectData = [
   },
   {
     id: 2,
-    slug: "react-portfolio",
-    title: "React Portfolio",
-    category: "react",
-    image: img2,
-    gallery: [img2, img3, img4],
-    description: "Personal portfolio website developed using React and Bootstrap.",
+    slug: "dekito-tours-and-travel",
+    title: "De-Kito Tours & Travel",
+    category: "wordpress",
+    image: img13,
+    gallery: [img14, img15, img16],
+    description: "Professional educational consultancy and study-abroad platform built for guiding students globally.",
     overview:
-      "A modern portfolio showcasing projects, skills and services with smooth navigation and responsive layout.",
+      "A fully responsive and feature-rich website designed for an educational consultancy and travel agency, helping students with admissions, study abroad programs, and visa support.",
     client: "Personal",
-    role: "Frontend Developer",
-    duration: "1 Week",
+    role: "WordPress Developer",
+    duration: "2 Weeks",
     status: "Completed",
-    technologies: ["React", "Bootstrap", "CSS", "JavaScript", "Vite"],
-    features: ["Responsive", "Portfolio Filter", "Project Details", "Animations", "Contact Section"],
-    live: "#",
-    github: "#",
+    technologies: ["WordPress", "Elementor Pro", "PHP", "CSS", "Responsive Design"],
+    features: ["Service Showcase", "Contact Forms", "Booking/Consultation Inquiry", "Mobile Responsive", "SEO Optimized"],
+    live: "https://dekitotoursandtravel.com/",
+    github: "https://github.com/mianhassanasad",
   },
   {
     id: 3,

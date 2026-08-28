@@ -206,3 +206,36 @@ transform:scale(1.05);
 border-color:#149ddd;
 
 }
+/* ===========================
+   Click to Zoom & Mobile Styles
+=========================== */
+
+/* Zoom Badge Styling */
+.zoom-badge {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(20, 157, 221, 0.9);
+  color: #fff;
+  padding: 6px 14px;
+  borderRadius: 20px;
+  font-size: 13px;
+  fontWeight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.zoom-badge:hover {
+  background: rgba(11, 120, 172, 1);
+  transform: scale(1.05);
+}
+
+/* Mobile Responsive Adjustments for Zoom */
+@media (max-width: 576px) {
+  .zoom-badge {
+    bottom: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
