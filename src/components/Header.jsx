@@ -31,27 +31,30 @@ function Header() {
     { title: "Contact", id: "contact", icon: <FaEnvelope className="nav-icon" /> },
   ];
 
-  // Handler for smooth navigation across sub-pages and home sections
+  // Handler for smooth navigation across sub-pages and home sections (Optimized for Mobile)
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     setMenuOpen(false);
 
-    // Agar hum pehle se home page (/) par nahi hain, toh pehle home par jayein
-    if (location.pathname !== "/") {
-      navigate("/");
-      // Thora delay de kar section par scroll karein taaki home page load ho jaye
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      // Agar pehle hi home page par hain, toh direct us section par scroll ho jaye
+    const scrollToSection = () => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    };
+
+    // Agar hum pehle se home page (/) par nahi hain, toh pehle home par jayein
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Mobile aur sub-pages ke liye proper delay taaki DOM load ho jaye
+      setTimeout(() => {
+        scrollToSection();
+      }, 300);
+    } else {
+      // Agar pehle hi home page par hain
+      setTimeout(() => {
+        scrollToSection();
+      }, 100);
     }
   };
 
