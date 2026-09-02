@@ -56,7 +56,7 @@ function About() {
                 <div className="info-item mb-2 mb-md-0">
                   <span className="info-label">Email:</span>
                   <a href="mailto:mianhassanwp@gmail.com" className="info-val info-email text-decoration-none">
-                    mianhassanwp@gmail.com
+                    mianhassandev@gmail.com
                   </a>
                 </div>
               </div>
