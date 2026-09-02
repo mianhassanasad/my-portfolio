@@ -25,8 +25,8 @@ function Skills() {
 
   const leftSkills = [
     { name: "HTML5 / CSS3", value: 95 },
-    { name: "JavaScript (ES6+)", value: 85 },
-    { name: "React.js", value: 80 },
+    { name: "JavaScript (ES6+)", value: 40 },
+    { name: "React.js", value: 40 },
   ];
 
   const rightSkills = [
