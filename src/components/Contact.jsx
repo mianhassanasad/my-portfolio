@@ -31,7 +31,6 @@ function Contact() {
     setStatus({ submitted: true, success: false, message: "Sending message..." });
 
     try {
-      // Free Web3Forms endpoint (Directly forwards submissions to your email)
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -39,7 +38,7 @@ function Contact() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Niche note parh kar yahan apni key lagani hai
+          access_key: "10e55e05-39c4-4232-8f0c-b2ffe786303c", // Aapki nayi Web3Forms access key
           name: formData.name,
           email: formData.email,
           subject: formData.subject || "Portfolio Inquiry",
@@ -53,7 +52,7 @@ function Contact() {
         setStatus({
           submitted: false,
           success: true,
-          message: "Thank you! Your message has been sent successfully.",
+          message: "Thank you! Your message has been sent successfully. I'll get back to you soon!",
         });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
@@ -71,10 +70,10 @@ function Contact() {
       });
     }
 
-    // Clear status message after 5 seconds
+    // Clear status message after 6 seconds
     setTimeout(() => {
       setStatus({ submitted: false, success: false, message: "" });
-    }, 5000);
+    }, 6000);
   };
 
   return (
@@ -217,7 +216,7 @@ function Contact() {
                 ></textarea>
               </div>
 
-<div className="text-center text-md-start mt-4">
+              <div className="text-center text-md-start mt-4">
                 <button
                   type="submit"
                   className="btn btn-send-message"
