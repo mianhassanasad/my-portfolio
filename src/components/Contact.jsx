@@ -14,33 +14,67 @@ function Contact() {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState({
+    submitted: false,
+    success: false,
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Aapka WhatsApp number (Country code 92 ke sath, baghair '+' ke)
-    const phoneNumber = "923244244882";
+    setStatus({ submitted: true, success: false, message: "Sending message..." });
 
-    // WhatsApp ke liye message format tayyar karna
-    const whatsappMessage = 
-      `Hello Mian Hassan! New inquiry from portfolio:%0A%0A` +
-      `*Name:* ${formData.name}%0A` +
-      `*Email:* ${formData.email}%0A` +
-      `*Subject:* ${formData.subject || "Portfolio Inquiry"}%0A` +
-      `*Message:* ${formData.message}`;
+    try {
+      // Free Web3Forms endpoint (Directly forwards submissions to your email)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE", // Niche note parh kar yahan apni key lagani hai
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "Portfolio Inquiry",
+          message: formData.message,
+        }),
+      });
 
-    // Direct WhatsApp chat open karna
-    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, "_blank");
+      const result = await response.json();
 
-    setSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setSubmitted(false), 5000);
+      if (result.success) {
+        setStatus({
+          submitted: false,
+          success: true,
+          message: "Thank you! Your message has been sent successfully.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          submitted: false,
+          success: false,
+          message: "Something went wrong. Please try again later.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        submitted: false,
+        success: false,
+        message: "Network error. Please check your connection.",
+      });
+    }
+
+    // Clear status message after 5 seconds
+    setTimeout(() => {
+      setStatus({ submitted: false, success: false, message: "" });
+    }, 5000);
   };
 
   return (
@@ -112,9 +146,13 @@ function Contact() {
           {/* Right Side Form */}
           <div className="col-lg-7">
             <form className="contact-form-card" onSubmit={handleSubmit}>
-              {submitted && (
-                <div className="alert alert-success border-0 rounded-3 mb-4 text-center">
-                  Thank you! Redirecting to WhatsApp to send your message...
+              {status.message && (
+                <div
+                  className={`alert ${
+                    status.success ? "alert-success" : "alert-info"
+                  } border-0 rounded-3 mb-4 text-center`}
+                >
+                  {status.message}
                 </div>
               )}
 
@@ -179,9 +217,14 @@ function Contact() {
                 ></textarea>
               </div>
 
-              <div className="text-center text-md-start mt-4">
-                <button type="submit" className="btn btn-send-message">
-                  <FaPaperPlane className="me-2" /> Send Messsage
+<div className="text-center text-md-start mt-4">
+                <button
+                  type="submit"
+                  className="btn btn-send-message"
+                  disabled={status.submitted}
+                >
+                  <FaPaperPlane className="me-2" />
+                  {status.submitted ? "Sending..." : "Send Message"}
                 </button>
               </div>
             </form>
