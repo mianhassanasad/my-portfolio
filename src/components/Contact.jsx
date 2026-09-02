@@ -24,13 +24,19 @@ function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Direct mailto trigger fallback
-    const mailtoLink = `mailto:mianhassandev@gmail.com?subject=${encodeURIComponent(
-      formData.subject || "Portfolio Inquiry"
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
+    // Aapka WhatsApp number (Country code 92 ke sath, baghair '+' ke)
+    const phoneNumber = "923244244882";
+
+    // WhatsApp ke liye message format tayyar karna
+    const whatsappMessage = 
+      `Hello Mian Hassan! New inquiry from portfolio:%0A%0A` +
+      `*Name:* ${formData.name}%0A` +
+      `*Email:* ${formData.email}%0A` +
+      `*Subject:* ${formData.subject || "Portfolio Inquiry"}%0A` +
+      `*Message:* ${formData.message}`;
+
+    // Direct WhatsApp chat open karna
+    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, "_blank");
 
     setSubmitted(true);
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -107,8 +113,8 @@ function Contact() {
           <div className="col-lg-7">
             <form className="contact-form-card" onSubmit={handleSubmit}>
               {submitted && (
-                <div className="alert alert-custom border-0 rounded-3 mb-4 text-center">
-                  Thank you! Opening your email app to send the message...
+                <div className="alert alert-success border-0 rounded-3 mb-4 text-center">
+                  Thank you! Redirecting to WhatsApp to send your message...
                 </div>
               )}
 
@@ -175,7 +181,7 @@ function Contact() {
 
               <div className="text-center text-md-start mt-4">
                 <button type="submit" className="btn btn-send-message">
-                  <FaPaperPlane className="me-2" /> Send Message
+                  <FaPaperPlane className="me-2" /> Send Messsage
                 </button>
               </div>
             </form>
