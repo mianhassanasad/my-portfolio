@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 import profileImg from "../assets/profile.jpg";
@@ -15,12 +15,25 @@ import {
   FaTwitter,
   FaBars,
   FaTimes,
+  FaSun,
+  FaMoon,
 } from "react-icons/fa";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Dark/Light theme sync with DOM & localStorage
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   // Navigation Items with section IDs
   const navItems = [
@@ -31,7 +44,6 @@ function Header() {
     { title: "Contact", id: "contact", icon: <FaEnvelope className="nav-icon" /> },
   ];
 
-  // Handler for smooth navigation across sub-pages and home sections (Optimized for Mobile)
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     setMenuOpen(false);
@@ -43,15 +55,12 @@ function Header() {
       }
     };
 
-    // Agar hum pehle se home page (/) par nahi hain, toh pehle home par jayein
     if (location.pathname !== "/") {
       navigate("/");
-      // Mobile aur sub-pages ke liye proper delay taaki DOM load ho jaye
       setTimeout(() => {
         scrollToSection();
       }, 300);
     } else {
-      // Agar pehle hi home page par hain
       setTimeout(() => {
         scrollToSection();
       }, 100);
@@ -70,7 +79,7 @@ function Header() {
 
       {/* Sidebar */}
       <header id="header" className={menuOpen ? "header-active" : ""}>
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column h-150 justify-between">
 
           {/* Profile */}
           <div className="profile">
@@ -109,6 +118,30 @@ function Header() {
               ))}
             </ul>
           </nav>
+
+          {/* Theme Toggle Button at Bottom of Sidebar */}
+          <div className="text-center my-3">
+            <button
+              onClick={toggleTheme}
+              className="btn btn-sm text-light d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill"
+              style={{
+                backgroundColor: theme === "light" ? "#173b6c" : "#334155",
+                border: "none",
+                fontSize: "13px",
+              }}
+              title="Toggle Dark/Light Mode"
+            >
+              {theme === "light" ? (
+                <>
+                  <FaMoon size={14} /> Dark Mode
+                </>
+              ) : (
+                <>
+                  <FaSun size={14} className="text-warning" /> Light Mode
+                </>
+              )}
+            </button>
+          </div>
 
         </div>
       </header>

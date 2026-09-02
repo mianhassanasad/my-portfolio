@@ -1,0 +1,353 @@
+/* ===================================================
+   PORTFOLIO GLOBAL DESIGN SYSTEM & MASTER STYLES
+   =================================================== */
+
+/* 1. CSS Variables & Theme Foundations (Light & Dark) */
+:root {
+  --primary-color: #173b6c;
+  --accent-color: #0563bb;
+  --accent-gradient: linear-gradient(135deg, #0563bb 0%, #00b4d8 100%);
+  --text-dark: #272829;
+  --text-muted: #6c757d;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 25px rgba(5, 99, 187, 0.08);
+  --font-main: "Open Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary-color: #4da3ff;
+  --accent-color: #38bdf8;
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  --text-dark: #f1f5f9;
+  --text-muted: #94a3b8;
+  --bg-light: #1e293b;
+  --bg-white: #0f172a;
+  --border-color: #334155;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. Global Resets & HTML Defaults */
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  font-family: var(--font-main);
+  color: var(--text-dark) !important;
+  background-color: var(--bg-white) !important;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 3. Base Section Layouts & Background Alternation */
+section {
+  padding: 60px 0;
+  overflow: hidden;
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-bg {
+  background-color: var(--bg-light) !important;
+}
+
+/* 4. Universal Section Titles & Headings */
+.section-title,
+.services-header,
+.testimonials-header,
+.contact-header {
+  margin-bottom: 30px;
+}
+
+.section-title h2,
+.services-header .section-title,
+.testimonials-header .section-title,
+.contact-header .section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color) !important;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.section-title h2::after,
+.services-header .section-title::after,
+.testimonials-header .section-title::after,
+.contact-header .section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3.5px;
+  background: var(--accent-gradient);
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+}
+
+.section-title p,
+.services-header .subtitle,
+.testimonials-header .subtitle,
+.contact-header .subtitle {
+  font-size: 14.5px;
+  color: var(--text-muted) !important;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* 5. Cards, Boxes & Forms Adaptation */
+.contact-info-card,
+.contact-form-card,
+.service-box,
+.testimonial-item,
+.card {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-color) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Base Card Lift Animations */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===================================================
+   DARK MODE SPECIFIC COMPONENT FIXES
+   =================================================== */
+
+/* Sidebar / Header Background in Dark Mode */
+[data-theme="dark"] #header,
+[data-theme="dark"] header {
+  background-color: var(--bg-white) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* General Dark Mode Text Adjustments */
+[data-theme="dark"] p,
+[data-theme="dark"] span:not(.badge):not(.skill-badge),
+[data-theme="dark"] strong {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* About Section Clean Fix (Removes unwanted background boxes from info rows) */
+[data-theme="dark"] .about .content ul,
+[data-theme="dark"] .about .content li,
+[data-theme="dark"] .personal-info .row,
+[data-theme="dark"] .personal-info li,
+[data-theme="dark"] .about-content .row div {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .personal-info strong,
+[data-theme="dark"] .personal-info span,
+[data-theme="dark"] .about .content ul strong,
+[data-theme="dark"] .about .content ul span {
+  background-color: transparent !important;
+  color: var(--text-dark) !important;
+}
+
+/* Skill Badges & Pills in Dark Mode */
+[data-theme="dark"] .skills-content span,
+[data-theme="dark"] .skills-content button,
+[data-theme="dark"] .skill-badge,
+[data-theme="dark"] .badge {
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Portfolio Filters & Cards */
+[data-theme="dark"] .portfolio-filters li,
+[data-theme="dark"] .filters-container button {
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .portfolio-filters li.filter-active,
+[data-theme="dark"] .filters-container button.active {
+  background-color: var(--accent-color) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .portfolio-item,
+[data-theme="dark"] .portfolio-wrap,
+[data-theme="dark"] .portfolio-content {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* ===================================================
+   UNIFIED MOBILE RESPONSIVE ENGINE (Max Width 768px)
+   =================================================== */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  section {
+    padding: 36px 0 !important;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .section-title,
+  .services-header,
+  .testimonials-header,
+  .contact-header {
+    text-align: center !important;
+    margin-bottom: 24px !important;
+  }
+
+  .section-title h2,
+  .services-header .section-title,
+  .testimonials-header .section-title,
+  .contact-header .section-title {
+    font-size: 24px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .section-title h2::after,
+  .services-header .section-title::after,
+  .testimonials-header .section-title::after,
+  .contact-header .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 45px !important;
+  }
+
+  .service-box,
+  .testimonial-item,
+  .contact-info-card,
+  .contact-form-card {
+    padding: 20px 18px !important;
+    border-radius: 12px !important;
+  }
+
+  .btn-send-message {
+    width: 100% !important;
+    padding: 12px 0 !important;
+  }
+}
+/* ===================================================
+   ABSOLUTE FINAL FIX FOR LABELS AND WHITE CARDS
+   =================================================== */
+
+/* 1. Make all labels/text inside the About section completely visible */
+[data-theme="dark"] .about-content span,
+[data-theme="dark"] .about-content strong,
+[data-theme="dark"] .personal-info span,
+[data-theme="dark"] .personal-info strong,
+[data-theme="dark"] .about ul li span,
+[data-theme="dark"] .about ul li strong {
+  color: var(--text-dark) !important;
+  background-color: transparent !important;
+}
+
+/* 2. Force Milestones, Skills, and all cards to adopt dark background */
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-box,
+[data-theme="dark"] .testimonial-item,
+[data-theme="dark"] .contact-info-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .skills-item,
+[data-theme="dark"] div[class*="box"],
+[data-theme="dark"] div[class*="card"] {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* 3. Ensure card titles and percentages inside skills are bright */
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h4,
+[data-theme="dark"] .card span,
+[data-theme="dark"] .skills-item span {
+  color: var(--text-dark) !important;
+}
+/* ===================================================
+   FINAL BRIGHT HEADINGS FIX FOR DARK MODE
+   =================================================== */
+[data-theme="dark"] .section-title h2,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] .services-header .section-title,
+[data-theme="dark"] .testimonials-header .section-title,
+[data-theme="dark"] .contact-header .section-title {
+  color: #38bdf8 !important; /* Bright Sky Blue jo dark mode mein chamkay gi */
+}
+/* ===================================================
+   ULTIMATE OVERRIDE FOR PORTFOLIO CARD BOXES/TEXT
+   =================================================== */
+
+[data-theme="dark"] .portfolio-item *,
+[data-theme="dark"] .portfolio-wrap *,
+[data-theme="dark"] .portfolio-info * {
+  border-color: var(--border-color) !important;
+}
+
+/* Force portfolio item background and text */
+[data-theme="dark"] .portfolio-item,
+[data-theme="dark"] .portfolio-wrap,
+[data-theme="dark"] .portfolio-info {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Fix any inner paragraph, span, or white box under the title */
+[data-theme="dark"] .portfolio-info p,
+[data-theme="dark"] .portfolio-info span,
+[data-theme="dark"] .portfolio-wrap p,
+[data-theme="dark"] .portfolio-wrap span,
+[data-theme="dark"] .portfolio-links {
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
+}
