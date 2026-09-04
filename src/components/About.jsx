@@ -19,14 +19,16 @@ function About() {
         {/* Main Content Area */}
         <div className="about-content">
           <h3 className="role-title mb-3 text-center text-md-start">
-            Frontend & WordPress Developer (3+ Years Experience)
+            Frontend & WordPress Developer 
           </h3>
 
           <p className="about-text text-secondary mb-4 text-center text-md-start">
-            Passionate Web Developer specialized in building high-performing, user-friendly websites. 
+            {/* Passionate Web Developer specialized in building high-performing, user-friendly websites. 
             With 3+ years of experience across <strong>React.js</strong> modern front-end stack and 
             <strong> WordPress / CMS Page Builders (Elementor & Divi)</strong>, I focus on delivering 
-            pixel-perfect layouts, fast loading speeds, and seamless user experiences.
+            pixel-perfect layouts, fast loading speeds, and seamless user experiences. */}
+
+            Passionate Web Developer specialized in building high-performing, user-friendly websites. With extensive experience across the <strong>HTML5, CSS3, Bootstrap</strong> front-end stack and <strong>WordPress / CMS Page Builders (Elementor & Divi)</strong>, I focus on delivering pixel-perfect layouts, fast loading speeds, and seamless user experiences.
           </p>
 
           {/* Download Resume Button Area */}
@@ -64,11 +66,11 @@ function About() {
               <div className="col-12 col-md-6">
                 <div className="info-item mb-2">
                   <span className="info-label">Primary Tech:</span>
-                  <span className="info-val">React, JavaScript, HTML5/CSS3</span>
+                  <span className="info-val">HTML5/CSS3, JavaScript, Bootstrap, React </span>
                 </div>
                 <div className="info-item mb-2">
                   <span className="info-label">CMS Stack:</span>
-                  <span className="info-val">WordPress, Elementor, Divi</span>
+                  <span className="info-val">WordPress, Wix, GHL, Ecommerce, Elementor, Divi</span>
                 </div>
                 <div className="info-item align-items-center">
                   <span className="info-label">Freelance:</span>
@@ -88,13 +90,13 @@ function About() {
           <div className="tech-badges-wrapper text-center text-md-start">
             <h6 className="text-uppercase text-muted fw-bold mb-3 fs-7">Core Skills & Tools</h6>
             <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
-              <span className="tech-badge">React.js</span>
-              <span className="tech-badge">JavaScript (ES6+)</span>
               <span className="tech-badge">WordPress</span>
               <span className="tech-badge">Elementor Pro</span>
               <span className="tech-badge">Divi Builder</span>
               <span className="tech-badge">Bootstrap 5</span>
               <span className="tech-badge">Responsive Design</span>
+              <span className="tech-badge">React.js</span>
+              <span className="tech-badge">JavaScript (ES6+)</span>
             </div>
           </div>
         </div>
